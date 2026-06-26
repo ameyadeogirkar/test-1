@@ -3,20 +3,20 @@ from datetime import datetime, timedelta
 
 def fetch_stock_data(ticker):
 
+    end = datetime.today()
 
-end = datetime.today()
-start = end - timedelta(days=5*365)
+    start = end - timedelta(days=5 * 365)
 
-stock = yf.Ticker(ticker)
+    stock = yf.Ticker(ticker)
 
-df = yf.download(
-    ticker,
-    start=start,
-    end=end,
-    progress=False,
-    auto_adjust=True
-)
+    df = yf.download(
+        ticker,
+        start=start,
+        end=end,
+        progress=False,
+        auto_adjust=True
+    )
 
-info = stock.info
+    info = stock.info
 
-return df, info
+    return df, info
