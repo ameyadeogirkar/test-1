@@ -93,14 +93,10 @@ except Exception as e:
 # BASIC VARIABLES
 # --------------------------------------------------
 
-st.write("DF Columns:", df.columns)
-
 close = df["Close"]
 
-st.write("Close Type:", type(close))
-st.write("Close Last Value:", close.iloc[-1])
+current_price = float(close.iloc[-1])
 
-st.stop()
 overview = get_company_overview(
     info
 )
